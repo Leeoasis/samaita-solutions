@@ -1,1 +1,1 @@
-# samaita-solutions
+# g-g-construction
