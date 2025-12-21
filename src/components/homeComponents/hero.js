@@ -1,9 +1,4 @@
 // src/components/home/HeroPage.jsx
-import React from 'react';
-import Hero from '../../assets/images/gg31.jpg';
-import Hero1 from '../../assets/images/gg32.jpg';
-import Hero2 from '../../assets/images/gg7.jpg'; 
-import Hero3 from '../../assets/images/gg1.jpg';
 
 const HeroPage = () => {
   return (
@@ -15,21 +10,21 @@ const HeroPage = () => {
 
       {/* Floating Decorative Images */}
       <img
-        src={Hero}
+        src= 'images/cracks/ocrw.png'
         alt="Tools"
         className="hidden md:block absolute top-10 left-10 w-28 opacity-40 hover:opacity-70 transition duration-500 z-10"
       />
       <img
-        src={Hero}
+        src= 'images/welding/wldw.png'
         alt="Construction"
         className="hidden md:block absolute bottom-10 right-10 w-40 opacity-60 hover:opacity-80 transition duration-500 z-10"
       />
 
       {/* Project Image Cluster */}
       <div className="hidden md:flex absolute right-16 top-1/3 space-x-[-20px] z-10">
-        <img src={Hero1} className="w-32 rounded-lg shadow-lg rotate-3" alt="Project 1" />
-        <img src={Hero2} className="w-32 rounded-lg shadow-lg -rotate-2" alt="Project 2" />
-        <img src={Hero3} className="w-32 rounded-lg shadow-lg rotate-2" alt="Project 3" />
+        <img src= '/images/welding/wldw.png' className="w-32 rounded-lg shadow-lg rotate-3" alt="Project 1" />
+        <img src= '/images/skimming/skmw.png' className="w-32 rounded-lg shadow-lg -rotate-2" alt="Project 2" />
+        <img src= '/images/tiling/tlw.png' className="w-32 rounded-lg shadow-lg rotate-2" alt="Project 3" />
       </div>
 
       {/* Glassmorphism Card */}

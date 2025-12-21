@@ -61,7 +61,7 @@ const AboutPreview = () => {
         {/* Image Section */}
         <div className="relative group">
           <img
-            src={AboutImg}
+            src='/images/about.png'
             alt="Team or project"
             className="w-full rounded-xl shadow-2xl transform transition-transform duration-500 group-hover:scale-105"
           />

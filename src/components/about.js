@@ -11,7 +11,7 @@ const About = () => {
       {/* Hero Banner */}
       <section
         className="w-full bg-cover bg-center bg-no-repeat text-white relative"
-        style={{ backgroundImage: `url(${AboutHero})` }}
+        style={{ backgroundImage: `url('/images/about.png')` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
@@ -43,9 +43,9 @@ const About = () => {
           <div className="flex justify-center">
             <div className="bg-gray-100 p-4 rounded-xl shadow-xl max-w-md w-full">
               <img
-                src={WhoWeAreImg}
+                src= '/images/sanding/snd6.jpeg'
                 alt="Who We Are"
-                className="w-full h-auto rounded-lg object-cover"
+                className="w-full h-[400px] rounded-lg object-cover"
               />
             </div>
           </div>

@@ -1,19 +1,11 @@
 // src/components/home/ProjectTeaser.jsx
-import React from 'react';
-import Project1 from '../../assets/images/gg31.jpg';
-import Project2 from '../../assets/images/gg32.jpg';
-import Project3 from '../../assets/images/gg6.jpg';
-import Project4 from '../../assets/images/gg1.jpg';
-import Project5 from '../../assets/images/gg12.jpg';
-import Project6 from '../../assets/images/gg24.jpg';
-
 const projects = [
-  { image: Project1, alt: 'Cabinet Installation' },
-  { image: Project2, alt: 'Nutec House Build' },
-  { image: Project3, alt: 'Kitchen Carpentry' },
-  { image: Project4, alt: 'Vanity Setup' },
-  { image: Project5, alt: 'TV Unit Design' },
-  { image: Project6, alt: 'Wall Panelling' },
+  { image: '/images/ceiling/clw.png', alt: 'Ceiling Installation' },
+  { image: '/images/tiling/tlw.png', alt: 'Tiling' },
+  { image: 'images/sanding/snd6.jpeg', alt: 'Sanding' },
+  { image: '/images/razor-wire/rzw.png', alt: 'Razor Wire' },
+  { image: '/images/skimming/skmw.png', alt: 'Skimmming' },
+  { image: '/images/welding/wldw.png', alt: 'Welding' },
 ];
 
 const ProjectTeaser = () => {

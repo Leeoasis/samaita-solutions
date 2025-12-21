@@ -1,23 +1,23 @@
 import React from 'react';
 import WeldingImg from '../../assets/images/gg33.jpg'; 
-import CarportImg from '../../assets/images/gg1.jpg';
-import PaintingImg from '../../assets/images/gg27.jpg';
+
 
 const services = [
   {
     title: 'Welding & Spray Painting',
     description: 'Professional welding, steel installation, repairs, and smooth spray painting for gates, burglar bars, and structures.',
-    image: WeldingImg,
+    image: '/images/welding/wldw.png',
   },
   {
-    title: 'Carport Installation',
-    description: 'Dismantling and installation of durable, modern carports for homes and businesses.',
-    image: CarportImg,
+    title: 'Professional Tiling Services',
+    description:
+      'Installation and repair of high-quality wall and floor tiles for bathrooms, kitchens, patios, and commercial spaces, with precise alignment and durable finishes.',
+    image: '/images/tiling/tlw.png',
   },
   {
     title: 'Painting & Surface Preparation',
     description: 'Interior and exterior painting, high-pressure washing of walls, and clean finishing for long-lasting results.',
-    image: PaintingImg,
+    image: '/images/painting/ptw.png',
   },
 ];
 

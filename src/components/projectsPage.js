@@ -1,111 +1,122 @@
 // src/pages/Projects.jsx
 import React, { useState, useEffect, useCallback } from 'react';
-import Hero from '../assets/images/projects-hero.png'; // adjust if needed
-import Project1 from '../assets/images/gg1.jpg';
-import Project2 from '../assets/images/gg2.jpg';
-import Project3 from '../assets/images/gg6.jpg';
-import Project4 from '../assets/images/gg12.jpg';
-import Project5 from '../assets/images/gg17.jpg';
-import Project6 from '../assets/images/gg18.jpg';
+import Hero from '../assets/images/projects-hero.png';
 
 /**
- * Projects list - each project has a category (for filtering),
- * a thumbnail and a gallery array (lightbox).
+ * Projects list
+ * Images resolved from /public/images/{folder}/{filename}
  */
 const projects = [
   {
     id: 'welding-01',
     title: 'Welding & Spray Painting',
     category: 'Welding',
-    thumbnail: Project1,
-    gallery: [Project1, Project2],
+    folder: 'welding',
+    thumbnail: 'wldw.png',
+    gallery: ['wld4.jpeg', 'wld3.jpeg', 'wld2.jpeg', 'wld5.jpeg', 'wld1.jpeg', 'wld6.jpeg', 'wld7.jpeg', 'wld8.jpeg', 'wld9.jpeg', 'wld10.jpeg', 'wld11.jpeg', 'wld12.jpeg', 'wld13.jpeg', 'wld14.jpeg', 'wld15.jpeg',
+      'wld16.jpeg', 'wld17.jpeg', 'wld18.jpeg', 'wld19.jpeg', 'wld20.jpeg', 'wld21.jpeg', 'wld22.jpeg', 'wld23.jpeg', 'wld24.jpeg', 'wld25.jpeg', 'wld26.jpeg', 
+    ],
     description:
       'Steel fabrication and repairs with professional spray-paint finishing — gates, frames, and security fixtures restored and protected.',
   },
   {
-    id: 'carport-01',
-    title: 'Carport Dismantling & Installation',
-    category: 'Carports',
-    thumbnail: Project2,
-    gallery: [Project2, Project3],
+    id: 'skimming-01',
+    title: 'Wall & Ceiling Skimming',
+    category: 'Skimming',
+    folder: 'skimming',
+    thumbnail: 'skmw.png',
+    gallery: ['skm1.jpeg', 'skm2.jpeg', 'skm3.jpeg'],
     description:
-      'Safe dismantling of old carports and installation of new, durable carport structures with weather-resistant finishes.',
+      'Professional wall and ceiling skimming to create smooth, even surfaces ready for painting or finishing.',
   },
   {
     id: 'tiling-01',
     title: 'Tiling & Bathroom Renovation',
     category: 'Tiling',
-    thumbnail: Project3,
-    gallery: [Project3, Project4],
+    folder: 'tiling', 
+    thumbnail: 'tlw.png',
+    gallery: ['tl1.jpeg', 'tl2.jpeg', 'tl3.jpeg', 'tl4.jpeg', 'tl5.jpeg', 'tl6.jpeg', 'tl7.jpeg', 'tl8.jpeg', 'tl9.jpeg', 'tl10.jpeg', 'tl11.jpeg', 'tl12.jpeg', 'tl13.jpeg' ],
     description:
-      'Floor and wall tiling with waterproofing and neat, precision finishes — ideal for bathrooms, kitchens and tiled living areas.',
+      'Floor and wall tiling with waterproofing and neat, precision finishes for bathrooms and kitchens.',
   },
   {
     id: 'security-01',
     title: 'Razor Wire & Perimeter Security',
-    category: 'Security',
-    thumbnail: Project4,
-    gallery: [Project4, Project5],
+    category: 'Razor Wire',
+    folder: 'razor-wire', 
+    thumbnail: 'rzw.png',
+    gallery: ['rz1.jpeg', 'rz2.jpeg', 'rz3.jpeg', 'rz4.jpeg', 'rz5.jpeg', 'rz6.jpeg', 'rz7.jpeg', 'rz8.jpeg', 'rz9.jpeg', 'rz10.jpeg'],
     description:
-      'Professional razor wire installation and reinforced perimeter solutions to improve property security quickly and reliably.',
+      'Professional razor wire installation and reinforced perimeter security solutions.',
   },
   {
     id: 'deck-01',
     title: 'Deck Sanding, Polishing & Sealing',
     category: 'Decks',
-    thumbnail: Project5,
-    gallery: [Project5, Project6],
+    folder: 'sanding', 
+    thumbnail: 'snd6.jpeg',
+    gallery: ['snd1.jpeg', 'snd2.jpeg', 'snd3.jpeg', 'snd4.jpeg', 'snd5.jpeg', 'snd6.jpeg', 'snd7.jpeg', 'snd8.jpeg', 'snd9.jpeg', 'snd10.jpeg'],
     description:
-      'Deck restoration: deep sanding, polishing and sealing to bring wooden decks back to life and extend their lifespan.',
+      'Deck restoration through sanding, polishing and sealing to extend lifespan.',
   },
   {
     id: 'crack-01',
     title: 'Crack Repair & Wall Restoration',
-    category: 'Repairs',
-    thumbnail: Project6,
-    gallery: [Project6, Project1],
+    category: 'Crack Repairs',
+    folder: 'cracks', 
+    thumbnail: 'ocrw.png',
+    gallery: ['ocr1.jpeg', 'ocr2.jpeg', 'ocr3.jpeg', 'ocr4.jpeg', 'ocr5.jpeg', 'ocr6.jpeg', 'ocr7.jpeg', 'ocr8.jpeg', 'ocr9.jpeg', 'ocr10.jpeg', 'ocr11.jpeg'],
     description:
-      'Opening, assessing and professionally repairing cracks, followed by finishing and preparation for painting to prevent reoccurrence.',
+      'Professional crack assessment, repair and surface restoration to prevent reoccurrence.',
+  },
+    {
+    id: 'painting-01',
+    title: 'Painting & Surface Preparation',
+    category: 'Painting',
+    folder: 'painting', 
+    thumbnail: 'ptw.png',
+    gallery: ['pt1.jpeg', 'pt2.jpeg', 'pt3.jpeg', 'pt4.jpeg', 'pt5.jpeg', 'pt6.jpeg', 'pt7.jpeg', 'pt8.jpeg', 'pt9.jpeg'],
+    description:
+      'Comprehensive surface preparation and painting services for interior and exterior spaces.',
+  },
+  {
+    id: 'ceiling-01',
+    title: 'Ceiling Repairs & Replacement',
+    category: 'Ceiling Repairs',
+    folder: 'ceiling',
+    thumbnail: 'clw.png',
+    gallery: ['cl1.jpeg', 'cl2.jpeg', 'cl3.jpeg' ],
+    description:
+      'Expert ceiling repairs and replacements to restore structural integrity and aesthetic appeal.',
   },
 ];
 
-/**
- * Unique categories extracted from projects array.
- * 'All' is included as default.
- */
 const categories = ['All', ...Array.from(new Set(projects.map((p) => p.category)))];
 
 const Projects = () => {
-  const [activeProject, setActiveProject] = useState(null); // object of project currently open in modal
-  const [activeImageIndex, setActiveImageIndex] = useState(0); // index inside activeProject.gallery
+  const [activeProject, setActiveProject] = useState(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [filter, setFilter] = useState('All');
   const [filteredProjects, setFilteredProjects] = useState(projects);
 
-  // update filteredProjects when filter changes
   useEffect(() => {
-    if (filter === 'All') {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(projects.filter((p) => p.category === filter));
-    }
+    setFilteredProjects(
+      filter === 'All' ? projects : projects.filter((p) => p.category === filter)
+    );
   }, [filter]);
 
-  // Open modal for a project and set index to 0 (or optionally a specific image)
   const openProject = (project, index = 0) => {
     setActiveProject(project);
     setActiveImageIndex(index);
-    // disable page scroll while modal open
     document.body.style.overflow = 'hidden';
   };
 
-  // Close modal and restore scrolling
   const closeModal = () => {
     setActiveProject(null);
     setActiveImageIndex(0);
     document.body.style.overflow = '';
   };
 
-  // navigate gallery prev/next (wrap around)
   const showPrev = useCallback(() => {
     if (!activeProject) return;
     setActiveImageIndex((prev) =>
@@ -120,7 +131,6 @@ const Projects = () => {
     );
   }, [activeProject]);
 
-  // Keyboard handlers: Esc to close, Left/Right to navigate
   useEffect(() => {
     const handler = (e) => {
       if (!activeProject) return;
@@ -132,87 +142,81 @@ const Projects = () => {
     return () => window.removeEventListener('keydown', handler);
   }, [activeProject, showPrev, showNext]);
 
-  // Preload images in the active project's gallery for smoother navigation
   useEffect(() => {
     if (!activeProject) return;
-    activeProject.gallery.forEach((src) => {
-      const img = new Image();
-      img.src = src;
+    activeProject.gallery.forEach((img) => {
+      const image = new Image();
+      image.src = `/images/${activeProject.folder}/${img}`;
     });
   }, [activeProject]);
 
   return (
     <main>
-      {/* Hero Section */}
+      {/* Hero */}
       <section
         className="w-full bg-cover bg-center bg-no-repeat text-white relative"
         style={{ backgroundImage: `url(${Hero})` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-40 pb-32">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Samaita Construction Solutions — Our Work</h1>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-            Browse selected projects showcasing welding, carports, tiling, security installations, deck restoration and structural repairs.
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Samaita Construction Solutions — Our Work
+          </h1>
+          <p className="text-lg text-gray-200">
+            Browse selected projects showcasing our construction and renovation expertise.
           </p>
         </div>
       </section>
 
       {/* Filters */}
-      <section className="w-full bg-white text-gray-900 py-8 px-6 md:px-16 lg:px-24">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div>
-            <h2 className="text-2xl font-bold">Projects</h2>
-            <p className="text-gray-600 mt-1">Filter by service type to find similar work.</p>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                  filter === cat
-                    ? 'bg-yellow-400 text-gray-900 shadow'
-                    : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-                }`}
-                aria-pressed={filter === cat}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+      <section className="py-8 px-6 md:px-16 lg:px-24 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-wrap gap-3">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`px-4 py-2 rounded-full text-sm font-medium ${
+                filter === cat
+                  ? 'bg-yellow-400 text-gray-900'
+                  : 'bg-gray-100 hover:bg-gray-200'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
       </section>
 
       {/* Projects Grid */}
-      <section className="w-full bg-white text-gray-900 py-6 px-6 md:px-16 lg:px-24">
-        <div className="max-w-7xl mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <section className="py-6 px-6 md:px-16 lg:px-24 bg-white">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredProjects.map((project) => (
             <article
               key={project.id}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col"
+              className="bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden flex flex-col"
             >
               <img
-                src={project.thumbnail}
+                src={`/images/${project.folder}/${project.thumbnail}`}
                 alt={project.title}
                 className="w-full h-56 object-cover"
               />
-              <div className="p-5 flex flex-col gap-3">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold">{project.title}</h3>
-                  <span className="text-xs px-2 py-1 rounded bg-gray-100 text-gray-700">{project.category}</span>
-                </div>
-                <p className="text-sm text-gray-700 leading-relaxed">{project.description}</p>
+              <div className="p-5 flex flex-col gap-3 flex-grow">
+                <h3 className="text-lg font-bold">{project.title}</h3>
+                <p className="text-sm text-gray-700 flex-grow">
+                  {project.description}
+                </p>
+
                 <div className="mt-3 flex gap-2">
                   <button
                     onClick={() => openProject(project, 0)}
-                    className="w-fit self-start bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-2 px-4 rounded-lg transition duration-300"
+                    className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-2 px-4 rounded-lg transition"
                   >
                     View Gallery
                   </button>
+
                   <a
                     href="/contact"
-                    className="w-fit self-start border border-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-50 transition duration-300"
+                    className="border border-gray-300 hover:bg-gray-50 text-gray-800 font-semibold py-2 px-4 rounded-lg transition"
                   >
                     Request Quote
                   </a>
@@ -226,91 +230,68 @@ const Projects = () => {
       {/* Modal Lightbox */}
       {activeProject && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center px-4"
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${activeProject.title} gallery`}
+          className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center px-6"
+          onClick={closeModal}
         >
-          <div className="bg-white rounded-lg max-w-4xl w-full p-4 relative overflow-y-auto max-h-[90vh]">
-            {/* Close */}
+          <div
+            className="bg-white rounded-lg max-w-6xl w-full p-6 relative overflow-y-auto max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
             <button
               onClick={closeModal}
-              className="absolute top-3 right-4 text-gray-700 hover:text-black text-2xl"
               aria-label="Close gallery"
+              className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-lg text-2xl font-bold text-gray-800 hover:bg-gray-100 transition z-50"
             >
               &times;
             </button>
 
-            {/* Header */}
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold">{activeProject.title}</h2>
-              <p className="text-sm text-gray-600">{activeProject.description}</p>
-            </div>
-
-            {/* Gallery + Controls */}
-            <div className="relative">
-              {/* Prev button */}
+            {/* Main image (PORTRAIT-SAFE FIX) */}
+            <div className="relative flex justify-center">
               <button
                 onClick={showPrev}
-                className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow z-20"
-                aria-label="Previous image"
+                className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow"
               >
                 ‹
               </button>
 
-              {/* Image */}
-              <div className="mx-auto max-w-3xl">
-                <img
-                  src={activeProject.gallery[activeImageIndex]}
-                  alt={`${activeProject.title} - ${activeImageIndex + 1}`}
-                  className="w-full rounded-lg shadow"
-                />
-              </div>
+              <img
+                src={`/images/${activeProject.folder}/${activeProject.gallery[activeImageIndex]}`}
+                alt=""
+                className="max-h-[70vh] max-w-[60vw] object-contain rounded-lg shadow"
+              />
 
-              {/* Next button */}
               <button
                 onClick={showNext}
-                className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow z-20"
-                aria-label="Next image"
+                className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow"
               >
                 ›
               </button>
             </div>
 
             {/* Thumbnails */}
-            <div className="mt-4 grid grid-cols-4 gap-3">
+            <div className="mt-6 grid grid-cols-6 gap-3">
               {activeProject.gallery.map((img, i) => (
                 <button
-                  key={i}
+                  key={img}
                   onClick={() => setActiveImageIndex(i)}
-                  className={`rounded overflow-hidden border-2 ${
-                    i === activeImageIndex ? 'border-yellow-400' : 'border-transparent'
+                  className={`border-2 rounded overflow-hidden ${
+                    i === activeImageIndex
+                      ? 'border-yellow-400'
+                      : 'border-transparent'
                   }`}
-                  aria-label={`Open image ${i + 1}`}
                 >
-                  <img src={img} alt={`thumb-${i}`} className="h-20 w-full object-cover" />
+                  <img
+                    src={`/images/${activeProject.folder}/${img}`}
+                    alt=""
+                    className="h-20 w-full object-cover"
+                  />
                 </button>
               ))}
             </div>
           </div>
         </div>
       )}
-
-      {/* CTA */}
-      <section className="w-full bg-gray-900 text-white py-20 px-6 md:px-16 text-center">
-        <div className="max-w-3xl mx-auto space-y-6">
-          <h2 className="text-2xl md:text-3xl font-bold">Ready to Start Your Project?</h2>
-          <p className="text-lg text-gray-300">
-            Contact Samaita Construction Solutions for a free quote — whether it’s repairs, installations, or full renovations.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300"
-          >
-            Request a Quote
-          </a>
-        </div>
-      </section>
     </main>
   );
 };

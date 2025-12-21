@@ -1,13 +1,9 @@
 // src/pages/Services.jsx
-import React from 'react';
-import CabinetImg from '../assets/images/cabinet.png'; // Replace with welding/carpentry image if available
-import NutecImg from '../assets/images/nutec.png'; // Replace with general construction image if available
-import Hero from '../assets/images/services-hero.png';
 
 const services = [
   {
     title: 'Welding, Installation & Spray Painting',
-    image: CabinetImg,
+    image: '/images/welding/wldw.png',
     description: [
       'Gate, burglar bar, and steel structure fabrication',
       'Professional welding repairs and finishing',
@@ -16,18 +12,18 @@ const services = [
     ],
   },
   {
-    title: 'Carport Dismantling & Installation',
-    image: NutecImg,
+    title: 'Skimming',
+    image: '/images/skimming/skmw.png',
     description: [
-      'Safe removal of old or damaged carports',
-      'Installation of new, durable carport structures',
-      'Metal, polycarbonate, or custom design options',
-      'Weather-resistant finishing and reinforcement',
+      'Professional wall and ceiling skimming for smooth, even surfaces',
+      'Correction of cracks, joints, and uneven plaster',
+      'Surface preparation ready for painting',
+      'High-quality workmanship for a flawless finish',
     ],
   },
   {
     title: 'Tiling Services',
-    image: CabinetImg,
+    image: '/images/tiling/tlw.png',
     description: [
       'Floor and wall tiling for homes and businesses',
       'Waterproofing and surface preparation',
@@ -37,7 +33,7 @@ const services = [
   },
   {
     title: 'Razor Wire Installation',
-    image: NutecImg,
+    image: '/images/razor-wire/rzw.png',
     description: [
       'Professional razor wire and security fencing setup',
       'Perimeter reinforcement for homes and businesses',
@@ -47,7 +43,7 @@ const services = [
   },
   {
     title: 'Deck Sanding & Polishing',
-    image: CabinetImg,
+    image: '/images/sanding/snd6.jpeg',
     description: [
       'Restoration of wooden decks to like-new condition',
       'Deep sanding to remove damage and stains',
@@ -57,7 +53,7 @@ const services = [
   },
   {
     title: 'Crack Repair (Opening & Closing)',
-    image: NutecImg,
+    image: '/images/cracks/ocrw.png',
     description: [
       'Opening cracks to identify underlying structural issues',
       'Professional sealing and closing of wall cracks',
@@ -67,7 +63,7 @@ const services = [
   },
   {
     title: 'Painting & High-Pressure Washing',
-    image: CabinetImg,
+    image: '/images/painting/ptw.png',
     description: [
       'Interior and exterior wall painting',
       'High-pressure washing before painting for clean surfaces',
@@ -76,15 +72,15 @@ const services = [
     ],
   },
   {
-    title: 'Ceiling Installation, Skimming & Painting',
-    image: NutecImg,
+    title: 'Ceiling Installation & Repairs',
+    image: '/images/ceiling/clw.png',
     description: [
-      'New ceiling installation (standard or custom designs)',
-      'Ceiling skimming for perfectly smooth surfaces',
-      'Painting and finishing for a clean final look',
-      'Professional repairs and ceiling restoration',
+      'New ceiling installation (standard and custom designs)',
+      'Gypsum, PVC, and suspended ceiling systems',
+      'Ceiling repairs, replacements, and restoration',
+      'Bulkheads and decorative ceiling features',
     ],
-  },
+  }
 ];
 
 const Services = () => {
@@ -93,7 +89,7 @@ const Services = () => {
       {/* Hero Section */}
       <section
         className="w-full bg-cover bg-center bg-no-repeat text-white relative"
-        style={{ backgroundImage: `url(${Hero})` }}
+        style={{ backgroundImage: `url('images/services.png')` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
