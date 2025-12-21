@@ -1,5 +1,5 @@
 // src/components/home/CTASection.jsx
-import React from 'react';
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   return (
@@ -11,12 +11,12 @@ const CTASection = () => {
         <p className="text-lg text-gray-300">
           Whether it’s custom carpentry or a complete Nutec home, let’s turn your vision into reality.
         </p>
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="inline-block bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300"
         >
           Request a Quote
-        </a>
+        </Link>
       </div>
     </section>
   );

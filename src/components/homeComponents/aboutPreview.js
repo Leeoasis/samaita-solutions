@@ -1,6 +1,6 @@
 // src/components/home/AboutPreview.jsx
 import React, { useEffect, useRef, useState } from 'react';
-
+import { Link } from 'react-router-dom';
 const AboutPreview = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -49,12 +49,12 @@ const AboutPreview = () => {
             We are committed to delivering durable, clean, and precise workmanship on every project — 
             ensuring your home or business looks professional, secure, and long-lasting.
           </p>
-          <a
-            href="/about"
+          <Link
+            to="/about"
             className="inline-block bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold hover:bg-yellow-500 transition-all duration-300"
           >
             Learn More
-          </a>
+          </Link>
         </div>
 
         {/* Image Section */}

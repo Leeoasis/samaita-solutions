@@ -1,4 +1,6 @@
-// src/components/home/ProjectTeaser.jsx
+// src/components/home/ProjectTeaser.js
+import { Link } from 'react-router-dom';
+
 const projects = [
   { image: '/images/ceiling/clw.png', alt: 'Ceiling Installation' },
   { image: '/images/tiling/tlw.png', alt: 'Tiling' },
@@ -38,12 +40,12 @@ const ProjectTeaser = () => {
 
         {/* CTA Button */}
         <div>
-          <a
-            href="/projects"
+          <Link
+            to="/projects"
             className="inline-block bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold hover:bg-yellow-500 transition-all duration-300"
           >
             See More Projects
-          </a>
+          </Link>
         </div>
       </div>
     </section>

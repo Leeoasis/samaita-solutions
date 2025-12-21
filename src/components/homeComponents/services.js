@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
@@ -54,12 +54,12 @@ const ServicesPreview = () => {
 
         {/* CTA Button */}
         <div>
-          <a
-            href="/services"
+          <Link
+            to="/services"
             className="inline-block bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold hover:bg-yellow-500 transition-all duration-300"
           >
             View All Services
-          </a>
+          </Link>
         </div>
       </div>
     </section>

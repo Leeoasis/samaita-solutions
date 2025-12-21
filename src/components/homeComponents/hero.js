@@ -1,5 +1,5 @@
 // src/components/home/HeroPage.jsx
-
+import { Link } from 'react-router-dom';
 const HeroPage = () => {
   return (
     <section id="hero" className="relative w-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden py-32 px-6">
@@ -38,18 +38,18 @@ const HeroPage = () => {
           and decking sanding & polishing. Quality craftsmanship, guaranteed durability.
         </p>
         <div className="flex justify-center flex-wrap gap-4">
-          <a
-            href="/projects"
+          <Link
+            to="/projects"
             className="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
           >
             View Our Work
-          </a>
-          <a
-            href="/contact"
+          </Link>
+          <Link
+            to="/contact"
             className="border border-white text-white py-3 px-6 rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300"
           >
             Request a Quote
-          </a>
+          </Link>
         </div>
       </div>
 
