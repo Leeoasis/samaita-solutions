@@ -111,7 +111,7 @@ const Contact = () => {
                 <FaEnvelope className="text-yellow-400 text-2xl mt-1" />
                 <div>
                   <h4 className="font-semibold text-lg">Email</h4>
-                  <p className="text-sm text-gray-700">info@ggconstruction.co.za</p>
+                  <p className="text-sm text-gray-700">info@samaitaconstructionsolutions.co.za</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
