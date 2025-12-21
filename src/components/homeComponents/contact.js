@@ -1,6 +1,5 @@
 // src/components/home/CTASection.jsx
 import { Link } from "react-router-dom";
- .
 const CTASection = () => {
   return (
     <section className="w-full bg-gray-900 text-white py-24 px-6 md:px-16 lg:px-24">
