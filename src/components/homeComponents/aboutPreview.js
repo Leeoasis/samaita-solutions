@@ -1,6 +1,5 @@
 // src/components/home/AboutPreview.jsx
 import React, { useEffect, useRef, useState } from 'react';
-import AboutImg from '../../assets/images/gg3.jpg'; // Your image
 
 const AboutPreview = () => {
   const sectionRef = useRef(null);

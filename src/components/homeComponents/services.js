@@ -1,6 +1,4 @@
 import React from 'react';
-import WeldingImg from '../../assets/images/gg33.jpg'; 
-
 
 const services = [
   {

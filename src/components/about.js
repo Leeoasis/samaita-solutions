@@ -1,7 +1,5 @@
 // src/pages/About.jsx
 import React from 'react';
-import AboutHero from '../assets/images/about.png';
-import WhoWeAreImg from '../assets/images/us.png';
 import { FaTools, FaCheckDouble, FaUsers } from 'react-icons/fa';
 
 const About = () => {
