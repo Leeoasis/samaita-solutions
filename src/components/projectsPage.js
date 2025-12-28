@@ -9,9 +9,17 @@ import Hero from '../assets/images/projects-hero.png';
  */
 
 const VIDEO_EXTENSIONS = ['.mp4', '.webm', '.ogg'];
+
 const isVideoFile = (file) =>
   typeof file === 'string' &&
   VIDEO_EXTENSIONS.some(ext => file.toLowerCase().endsWith(ext));
+
+const getThumbForItem = (item) => {
+  if (isVideoFile(item)) {
+    return item.replace(/\.(mp4|webm|ogg)$/i, '.jpg');
+  }
+  return item;
+};
 
 const projects = [
   {
@@ -26,8 +34,8 @@ const projects = [
       'wld11.jpeg','wld12.jpeg','wld13.jpeg','wld14.jpeg','wld15.jpeg',
       'wld16.jpeg','wld17.jpeg','wld18.jpeg','wld19.jpeg','wld20.jpeg',
       'wld21.jpeg','wld22.jpeg','wld23.jpeg','wld24.jpeg','wld25.jpeg',
-      'wld26.jpeg', 'wldv1.mp4', 'wlvd2.mp4','wlvd4.mp4',
-      // later: 'demo.mp4'
+      'wld26.jpeg',
+      'wldv1.mp4','wlvd2.mp4','wlvd4.mp4',
     ],
     description:
       'Steel fabrication and repairs with professional spray-paint finishing — gates, frames, and security fixtures restored and protected.',
@@ -65,7 +73,7 @@ const projects = [
     gallery: [
       'rz1.jpeg','rz2.jpeg','rz3.jpeg','rz4.jpeg','rz5.jpeg',
       'rz6.jpeg','rz7.jpeg','rz8.jpeg','rz9.jpeg','rz10.jpeg',
-      'rzvd1.mp4', 'rzvd2.mp4',
+      'rzvd1.mp4','rzvd2.mp4',
     ],
     description:
       'Professional razor wire installation and reinforced perimeter security solutions.',
@@ -105,9 +113,9 @@ const projects = [
     thumbnail: 'ptw.png',
     gallery: [
       'pt1.jpeg','pt2.jpeg','pt3.jpeg','pt4.jpeg','pt5.jpeg',
-      'pt6.jpeg','pt7.jpeg','pt8.jpeg','pt9.jpeg', 'ptvd1.mp4',
-      'ptvd2.mp4', 'ptvd3.mp4', 'ptvd4.mp4',  'ptvd5.mp4',
-      'ptvd6.mp4', 'ptvd7.mp4', 'ptvd8.mp4',
+      'pt6.jpeg','pt7.jpeg','pt8.jpeg','pt9.jpeg',
+      'ptvd1.mp4','ptvd2.mp4','ptvd3.mp4','ptvd4.mp4',
+      'ptvd5.mp4','ptvd6.mp4','ptvd7.mp4','ptvd8.mp4',
     ],
     description:
       'Comprehensive surface preparation and painting services for interior and exterior spaces.',
@@ -130,16 +138,11 @@ const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [filter, setFilter] = useState('All');
-  const [filteredProjects, setFilteredProjects] = useState(projects);
 
   const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
 
-  useEffect(() => {
-    setFilteredProjects(
-      filter === 'All' ? projects : projects.filter(p => p.category === filter)
-    );
-  }, [filter]);
+  const filteredProjects =
+    filter === 'All' ? projects : projects.filter(p => p.category === filter);
 
   const openProject = (project, index = 0) => {
     setActiveProject(project);
@@ -183,8 +186,7 @@ const Projects = () => {
   };
 
   const handleTouchEnd = e => {
-    touchEndX.current = e.changedTouches[0].screenX;
-    const delta = touchStartX.current - touchEndX.current;
+    const delta = touchStartX.current - e.changedTouches[0].screenX;
     if (Math.abs(delta) < 50) return;
     delta > 0 ? showNext() : showPrev();
   };
@@ -309,6 +311,7 @@ const Projects = () => {
               </button>
             </div>
 
+            {/* THUMBNAILS */}
             <div className="mt-6 grid grid-cols-6 gap-3">
               {activeProject.gallery.map((item, i) => (
                 <button
@@ -320,11 +323,18 @@ const Projects = () => {
                       : 'border-transparent'
                   }`}
                 >
-                  <img
-                    src={`/images/${activeProject.folder}/${item}`}
-                    className="h-20 w-full object-cover"
-                    alt=""
-                  />
+                  <div className="relative">
+                    <img
+                      src={`/images/${activeProject.folder}/${getThumbForItem(item)}`}
+                      className="h-20 w-full object-cover"
+                      alt=""
+                    />
+                    {isVideoFile(item) && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                        <span className="text-white text-xl font-bold">▶</span>
+                      </div>
+                    )}
+                  </div>
                 </button>
               ))}
             </div>
