@@ -119,9 +119,9 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-lg">Location</h4>
                   <p className="text-sm text-gray-700">
-                    417 Vine Avenue<br />
-                    Ferndale, Randburg<br />
-                    Johannesburg
+                    84 Main Rd<br />
+                    Parklands<br />
+                    Cape Town<br />
                   </p>
                 </div>
               </div>
