@@ -26,7 +26,7 @@ const projects = [
       'wld11.jpeg','wld12.jpeg','wld13.jpeg','wld14.jpeg','wld15.jpeg',
       'wld16.jpeg','wld17.jpeg','wld18.jpeg','wld19.jpeg','wld20.jpeg',
       'wld21.jpeg','wld22.jpeg','wld23.jpeg','wld24.jpeg','wld25.jpeg',
-      'wld26.jpeg', 'wldv1.mp4',
+      'wld26.jpeg', 'wldv1.mp4', 'wlvd2.mp4','wlvd4.mp4',
       // later: 'demo.mp4'
     ],
     description:
@@ -65,6 +65,7 @@ const projects = [
     gallery: [
       'rz1.jpeg','rz2.jpeg','rz3.jpeg','rz4.jpeg','rz5.jpeg',
       'rz6.jpeg','rz7.jpeg','rz8.jpeg','rz9.jpeg','rz10.jpeg',
+      'rzvd1.mp4', 'rzvd2.mp4',
     ],
     description:
       'Professional razor wire installation and reinforced perimeter security solutions.',
@@ -104,7 +105,9 @@ const projects = [
     thumbnail: 'ptw.png',
     gallery: [
       'pt1.jpeg','pt2.jpeg','pt3.jpeg','pt4.jpeg','pt5.jpeg',
-      'pt6.jpeg','pt7.jpeg','pt8.jpeg','pt9.jpeg',
+      'pt6.jpeg','pt7.jpeg','pt8.jpeg','pt9.jpeg', 'ptvd1.mp4',
+      'ptvd2.mp4', 'ptvd3.mp4', 'ptvd4.mp4',  'ptvd5.mp4',
+      'ptvd6.mp4', 'ptvd7.mp4', 'ptvd8.mp4',
     ],
     description:
       'Comprehensive surface preparation and painting services for interior and exterior spaces.',

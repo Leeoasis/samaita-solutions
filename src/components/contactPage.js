@@ -120,7 +120,7 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-lg">Location</h4>
                   <p className="text-sm text-gray-700">
-                    84 Main Rd<br />
+                    84 on Main<br />
                     Parklands<br />
                     Cape Town<br />
                   </p>

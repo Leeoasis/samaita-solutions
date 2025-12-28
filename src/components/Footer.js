@@ -49,9 +49,9 @@ const Footer = () => {
             <li className="flex items-center space-x-2">
               <FaMapMarkerAlt className="text-yellow-400" />
               <span>
-               84 Main Rd<br />
-                  Parklands<br />
-                  Cape Town
+               84 on Main <br />
+                Parklands<br />
+                Cape Town
               </span>
             </li>
           </ul>
