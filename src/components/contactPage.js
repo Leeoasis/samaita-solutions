@@ -104,7 +104,8 @@ const Contact = () => {
                 <FaPhoneAlt className="text-yellow-400 text-2xl mt-1" />
                 <div>
                   <h4 className="font-semibold text-lg">Phone</h4>
-                  <p className="text-sm text-gray-700">+27783111534</p>
+                  <p className="text-sm text-gray-700"><b>Whatsapp:</b> +27843301816</p>
+                  <p className="text-sm text-gray-700"><b>Calls :</b> +27844435959</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">

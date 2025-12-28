@@ -39,7 +39,8 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li className="flex items-center space-x-2">
               <FaPhoneAlt className="text-yellow-400" />
-              <span>+27 78 311 1534</span>
+              <span>Whatsapp: +27843301816
+              <br />Calls : +27844435959</span>
             </li>
             <li className="flex items-center space-x-2">
               <FaEnvelope className="text-yellow-400" />
